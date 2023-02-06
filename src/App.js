@@ -44,7 +44,7 @@ const App = () => {
             setinvalue(null);
           } catch (err) {
             setinvalue(null);
-            console.log(' مشکل دریافت دیتا انگلیسی');
+            console.log('مشکل دریافت دیتا انگلیسی');
             alert("عدم دسترس به سرور")
           }
         }

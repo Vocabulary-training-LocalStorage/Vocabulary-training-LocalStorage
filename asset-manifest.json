@@ -1,17 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.5bbb4114.css",
-    "main.js": "/static/js/main.201b558d.js",
+    "main.css": "/static/css/main.ee1351f7.css",
+    "main.js": "/static/js/main.a874a735.js",
     "static/media/Spinner.gif": "/static/media/Spinner.5b35cef0ce49e2af8525.gif",
+    "static/media/IranNastaliq.ttf": "/static/media/IranNastaliq.32e9d4e99ce672ff198a.ttf",
+    "static/media/Roboto-Regular.eot": "/static/media/Roboto-Regular.67168c66abc3f57c79f4.eot",
+    "static/media/Roboto-Regular.ttf": "/static/media/Roboto-Regular.fa7e6e7d259aa22ddca2.ttf",
+    "static/media/Roboto-Regular.woff": "/static/media/Roboto-Regular.0944be1093c62cedb919.woff",
+    "static/media/Vazir.eot": "/static/media/Vazir.7033586641859ae0b481.eot",
+    "static/media/Vazir.ttf": "/static/media/Vazir.33c1845a778f7e3c1c7d.ttf",
+    "static/media/Roboto-Regular.woff2": "/static/media/Roboto-Regular.9d43b86421e004e704b9.woff2",
     "static/media/B-NAZANIN.ttf": "/static/media/B-NAZANIN.d7478a9ecad2d8496d98.ttf",
     "static/media/B-Mitra.ttf": "/static/media/B-Mitra.9406f2558bc66343dd9e.ttf",
-    "static/media/B-Mitra-Bold.ttf": "/static/media/B-Mitra-Bold.5136982a0a4e8fac7f2d.ttf",
+    "static/media/B_Mitra_Bold.ttf": "/static/media/B_Mitra_Bold.5136982a0a4e8fac7f2d.ttf",
+    "static/media/Vazir.woff": "/static/media/Vazir.b8234f5ef6ecbd4b502d.woff",
+    "static/media/Vazir.woff2": "/static/media/Vazir.ef4fe90b863efb3ff605.woff2",
     "index.html": "/index.html",
-    "main.5bbb4114.css.map": "/static/css/main.5bbb4114.css.map",
-    "main.201b558d.js.map": "/static/js/main.201b558d.js.map"
+    "main.ee1351f7.css.map": "/static/css/main.ee1351f7.css.map",
+    "main.a874a735.js.map": "/static/js/main.a874a735.js.map"
   },
   "entrypoints": [
-    "static/css/main.5bbb4114.css",
-    "static/js/main.201b558d.js"
+    "static/css/main.ee1351f7.css",
+    "static/js/main.a874a735.js"
   ]
 }

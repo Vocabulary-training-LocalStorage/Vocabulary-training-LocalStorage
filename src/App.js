@@ -25,7 +25,7 @@ const App = () => {
   const [datawords, setdatawords] = useState(null); // کلمه های خوانده شده از سرور داخلی
   const [invalue, setinvalue] = useState(null); // خالی کننده مقدار ورودی ها
   const navigate = useNavigate();
-  const [wordcolor, setwordcolor] = useState(null); // خالی کننده مقدار ورودی ها
+  const [wordcolor, setwordcolor] = useState(null);
   //  ترجمه کلمه
   useEffect(() => {
     const fetchData_google = async () => {

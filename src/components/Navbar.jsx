@@ -23,6 +23,9 @@ import Slide from '@mui/material/Slide';
 import Fab from '@mui/material/Fab';
 // import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { FaArrowCircleUp } from "react-icons/fa";
+import PersistentDrawerRight from './mui/Sidebar';
+import zIndex from '@mui/material/styles/zIndex';
+import { boolean } from 'yup/lib/locale';
 
 
 const Navbar = (props) => {
@@ -78,31 +81,17 @@ const Navbar = (props) => {
 
 	return (
 		<>
-			{/* <HideOnScroll > */}
+
 
 			<span id='back-to-top-anchor'></span>
-			<AppBar className='w-100'>
-				<Toolbar className='w-100'>
-					<Typography variant="h6" component="div" className='' >
-						<RiFileWord2Fill style={{ color: "yellow", fontSize: '50px' }} className='mx-2'></RiFileWord2Fill>
-						تمرین لغت
-					</Typography>
-					<Typography component="div" className='mx-5'>
-						<AntSwitch onClick={() => setmode((prevLoading) => !prevLoading)}></AntSwitch>
-					</Typography>
 
 
-
-
-				</Toolbar>
-			</AppBar>
-
-
+			<PersistentDrawerRight ></PersistentDrawerRight>
 
 			<Box sx={{ my: 7 }} >
 				<Outlet></Outlet>
 				<ScrollTop {...props} >
-					<Fab size="big" aria-label="scroll back to top" className='bg-danger'>
+					<Fab size="big" aria-label="scroll back to top" className='bg-warning'>
 						<FaArrowCircleUp style={{ fontSize: "50px" }}></FaArrowCircleUp>
 					</Fab>
 				</ScrollTop>
@@ -122,6 +111,7 @@ const Navbar = (props) => {
 						theme="colored"
 					/>
 				</div>
+
 
 			</Box>
 

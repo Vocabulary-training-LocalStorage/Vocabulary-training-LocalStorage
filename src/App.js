@@ -25,7 +25,7 @@ const App = () => {
   const [datawords, setdatawords] = useState(null); // کلمه های خوانده شده از سرور داخلی
   const [invalue, setinvalue] = useState(null); // خالی کننده مقدار ورودی ها
   const navigate = useNavigate();
-
+  const [wordcolor, setwordcolor] = useState(null); // خالی کننده مقدار ورودی ها
   //  ترجمه کلمه
   useEffect(() => {
     const fetchData_google = async () => {
@@ -87,8 +87,8 @@ const App = () => {
       }
       if (meaning == null) {
         const words = JSON.parse(window.localStorage.getItem('words'));
-          setdatawords(words);
-          setinvalue(null)
+        setdatawords(words);
+        setinvalue(null)
       }
     };
     creator()
@@ -168,12 +168,17 @@ const App = () => {
   useEffect(() => {
     const words = JSON.parse(window.localStorage.getItem('words'));
     const id = JSON.parse(window.localStorage.getItem('id'));
-
     if (words == null) {
       window.localStorage.setItem('words', JSON.stringify([]));
     }
     else if (id == null) {
       window.localStorage.setItem('id', JSON.stringify(1));
+    }
+
+    const costomcolor = JSON.parse(window.localStorage.getItem('word_bgcolor'));
+    if (costomcolor == null) {
+      console.log("set initial color")
+      window.localStorage.setItem('word_bgcolor', JSON.stringify("colorly"));
     }
   }, []);
 
@@ -191,6 +196,16 @@ const App = () => {
     },
     palette: {
       mode: mode ? "light" : "dark",
+      C_blue: {
+        main: mode ? "#93BFCF" : "#6096B4",
+      },
+      C_gray: {
+        main: mode ? "#9a9a9a" : "#6f6f6f",
+      },
+      C_purple: {
+        main: mode ? "#A084DC" : "#645CBB",
+      },
+
     }
   })
   const cachertl = createCache({
@@ -198,9 +213,10 @@ const App = () => {
     stylisPlugins: [prefixer, rtlPlugin]
   })
 
+  const costomcolor = JSON.parse(window.localStorage.getItem('word_bgcolor'));
 
   return (
-    <Appcontext.Provider value={{ datawords, clear_s1, checker, invalue, handleupdate, setmode }}>
+    <Appcontext.Provider value={{ datawords, clear_s1, checker, invalue, handleupdate, setmode, costomcolor, setwordcolor, theme }}>
       <CacheProvider value={cachertl}>
         <ThemeProvider theme={theme}>
           <CssBaseline />

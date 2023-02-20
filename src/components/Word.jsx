@@ -3,12 +3,25 @@ import { useContext, useState } from "react";
 import AppContext from '../context/Context';
 import { Link } from "react-router-dom";
 import { HiSpeakerWave } from "react-icons/hi2";
-
-const Word = ({ datawords }) => {
-	const { handleupdate, clear_s1 } = useContext(AppContext);
-	const randomcolor = `rgb( ${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 200)},${Math.floor(Math.random() * 255)},0.45`;
+import Box from '@mui/material/Box';
+const Word = ({ datawords, costomcolor }) => {
+	const { handleupdate, clear_s1, theme } = useContext(AppContext);
 	const [disable, setdisbale] = useState(true);
 	const update = () => setdisbale(!disable);
+
+	const randomcolor = `rgba(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 200)},${Math.floor(Math.random() * 255)}, 0.5)`;
+	const [color, setcolor] = useState();
+	const blue = theme.palette.C_blue.main
+	const gray = theme.palette.C_gray.main
+	const purple = theme.palette.C_purple.main
+
+	const style = {
+		backgroundColor: costomcolor == "colorly"
+			? (datawords.background ? datawords.background : randomcolor)
+			: (costomcolor == "gray" ? gray :
+				(costomcolor == "purple" ? purple : blue)
+			)
+	}
 
 	const stylefont = {
 		fontSize: "15px",
@@ -41,11 +54,12 @@ const Word = ({ datawords }) => {
 
 
 	return (
-		<div className="  word d-flex  justify-content-between p-1 m-1 " style={{ backgroundColor: randomcolor }}>
+		<Box className="  word d-flex  justify-content-between p-1 m-1 "
+			sx={{ bgcolor: style }}>
 			<div className="d-flex  pt-0  w-100  " >
 				{form}
 			</div>
-		</div >
+		</Box  >
 	)
 };
 

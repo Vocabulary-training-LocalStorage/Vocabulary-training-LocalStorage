@@ -28,9 +28,10 @@ const App = () => {
   const [wordcolor, setwordcolor] = useState(null);
   //  ترجمه کلمه
   useEffect(() => {
+    const randomcolor = `rgb( ${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 200)},${Math.floor(Math.random() * 255)},0.45)`;
     const fetchData_google = async () => {
       if (word.english && word.persian) {
-        setmeaning({ english: word.english, persian: word.persian })
+        setmeaning({ english: word.english, persian: word.persian, background: randomcolor })
         setinvalue("");
       } else {
 
@@ -41,7 +42,7 @@ const App = () => {
             const id = JSON.parse(window.localStorage.getItem('id'));
             const newid = parseInt(id) + 1;
             window.localStorage.setItem('id', JSON.stringify(newid));
-            setmeaning({ english: word.english, persian: per[0][0][0], id: newid })
+            setmeaning({ english: word.english, persian: per[0][0][0], background: randomcolor })
             setinvalue(null);
           } catch (err) {
             setinvalue(null);
@@ -56,7 +57,7 @@ const App = () => {
             const id = JSON.parse(window.localStorage.getItem('id'));
             const newid = parseInt(id) + 1;
             window.localStorage.setItem('id', JSON.stringify(newid));
-            setmeaning({ english: eng[0][0][0], persian: word.persian, id: newid });
+            setmeaning({ english: eng[0][0][0], persian: word.persian, background: randomcolor });
             setinvalue(null);
           } catch (err) {
             setinvalue(null);

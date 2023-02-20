@@ -18,7 +18,7 @@ const Input = () => {
 
 	const { checker, invalue } = useContext(AppContext);
 
-	const initialvalues = { english: "", persian: "" };
+	const initialvalues = { english: "", persian: "", background: '' };
 
 
 

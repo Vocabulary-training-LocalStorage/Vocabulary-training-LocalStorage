@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.ee1351f7.css",
+    "main.css": "/static/css/main.38dfddea.css",
     "main.js": "/static/js/main.ab84511d.js",
+    "static/media/sidebg.png": "/static/media/sidebg.0f9578a34462a327e158.png",
     "static/media/Spinner.gif": "/static/media/Spinner.5b35cef0ce49e2af8525.gif",
     "static/media/IranNastaliq.ttf": "/static/media/IranNastaliq.32e9d4e99ce672ff198a.ttf",
     "static/media/Roboto-Regular.eot": "/static/media/Roboto-Regular.67168c66abc3f57c79f4.eot",
@@ -16,11 +17,11 @@
     "static/media/Vazir.woff": "/static/media/Vazir.b8234f5ef6ecbd4b502d.woff",
     "static/media/Vazir.woff2": "/static/media/Vazir.ef4fe90b863efb3ff605.woff2",
     "index.html": "/index.html",
-    "main.ee1351f7.css.map": "/static/css/main.ee1351f7.css.map",
+    "main.38dfddea.css.map": "/static/css/main.38dfddea.css.map",
     "main.ab84511d.js.map": "/static/js/main.ab84511d.js.map"
   },
   "entrypoints": [
-    "static/css/main.ee1351f7.css",
+    "static/css/main.38dfddea.css",
     "static/js/main.ab84511d.js"
   ]
 }

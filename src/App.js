@@ -31,7 +31,12 @@ const App = () => {
     const randomcolor = `rgb( ${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 200)},${Math.floor(Math.random() * 255)},0.45)`;
     const fetchData_google = async () => {
       if (word.english && word.persian) {
-        setmeaning({ english: word.english, persian: word.persian, background: randomcolor })
+
+        const lid = JSON.parse(window.localStorage.getItem('id'));
+        const id = parseInt(lid) + 1;
+        window.localStorage.setItem('id', JSON.stringify(id));
+
+        setmeaning({ english: word.english, persian: word.persian, background: randomcolor, id })
         setinvalue("");
       } else {
 
@@ -39,10 +44,12 @@ const App = () => {
           setinvalue("");
           try {
             let { data: per, status } = await english_tranclate(word.english)
-            const id = JSON.parse(window.localStorage.getItem('id'));
-            const newid = parseInt(id) + 1;
-            window.localStorage.setItem('id', JSON.stringify(newid));
-            setmeaning({ english: word.english, persian: per[0][0][0], background: randomcolor })
+
+            const lid = JSON.parse(window.localStorage.getItem('id'));
+            const id = parseInt(lid) + 1;
+            window.localStorage.setItem('id', JSON.stringify(id));
+
+            setmeaning({ english: word.english, persian: per[0][0][0], background: randomcolor, id })
             setinvalue(null);
           } catch (err) {
             setinvalue(null);
@@ -54,10 +61,12 @@ const App = () => {
           setinvalue("");
           try {
             let { data: eng } = await persian_tranclate(word.persian);
-            const id = JSON.parse(window.localStorage.getItem('id'));
-            const newid = parseInt(id) + 1;
-            window.localStorage.setItem('id', JSON.stringify(newid));
-            setmeaning({ english: eng[0][0][0], persian: word.persian, background: randomcolor });
+
+            const lid = JSON.parse(window.localStorage.getItem('id'));
+            const id = parseInt(lid) + 1;
+            window.localStorage.setItem('id', JSON.stringify(id));
+
+            setmeaning({ english: eng[0][0][0], persian: word.persian, background: randomcolor, id });
             setinvalue(null);
           } catch (err) {
             setinvalue(null);

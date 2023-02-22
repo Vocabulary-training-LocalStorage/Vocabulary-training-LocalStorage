@@ -21,9 +21,9 @@ const Word_editor = () => {
 			try {
 				let words = word_info(parseInt(params.wid)) //10
 				setword(words[0]);
-				console.log(words);
+				// console.log(words);
 			} catch {
-				console.log("مشکلی پیش آمده");
+				// console.log("مشکلی پیش آمده");
 			}
 		}
 		recever();

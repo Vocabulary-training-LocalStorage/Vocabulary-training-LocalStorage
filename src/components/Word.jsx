@@ -27,7 +27,7 @@ const Word = ({ datawords, costomcolor }) => {
 		fontSize: "15px",
 	}
 
-	console.log(datawords)
+
 
 	const reader = () => {
 		let utterance = new SpeechSynthesisUtterance(datawords.english);

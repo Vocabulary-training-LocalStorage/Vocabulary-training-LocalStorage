@@ -53,7 +53,7 @@ const App = () => {
             setinvalue(null);
           } catch (err) {
             setinvalue(null);
-            console.log(' مشکل دریافت دیتا انگلیسی');
+            // console.log(' مشکل دریافت دیتا انگلیسی');
             alert("عدم دسترس به سرور")
           }
         }
@@ -71,7 +71,7 @@ const App = () => {
           } catch (err) {
             setinvalue(null);
             alert("عدم دسترس به سرور")
-            console.log('مشکل دریافت دیتا فارسی');
+            // console.log('مشکل دریافت دیتا فارسی');
           }
         }
       }
@@ -89,10 +89,10 @@ const App = () => {
         try {
           createword(meaning);
           toast.success("کلمه ساخته شد");
-          console.log("کلمه ثبت شد");
+          // console.log("کلمه ثبت شد");
           setinvalue(null)
         } catch (err) {
-          console.log("مشکل ثبت در سرور داخلی");
+          // console.log("مشکل ثبت در سرور داخلی");
         }
       }
       if (meaning == null) {
@@ -142,7 +142,7 @@ const App = () => {
       let words = dbwords();
       setdatawords(words);
     } catch {
-      console.log("مشکل در حذف کلمه");
+      // console.log("مشکل در حذف کلمه");
     }
   }
 
@@ -187,7 +187,7 @@ const App = () => {
 
     const costomcolor = JSON.parse(window.localStorage.getItem('word_bgcolor'));
     if (costomcolor == null) {
-      console.log("set initial color")
+      // console.log("set initial color")
       window.localStorage.setItem('word_bgcolor', JSON.stringify("colorly"));
     }
   }, []);

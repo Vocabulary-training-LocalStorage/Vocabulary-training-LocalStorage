@@ -25,14 +25,8 @@ const Word = ({ datawords, costomcolor }) => {
 			)
 	}
 
-	const persian_stylefont = {
-		fontSize: "15px",
-		visibility: persianshow ? "" : "hidden"
-	}
-	const english_stylefont = {
-		fontSize: "15px",
-		visibility: englishshow ? "" : "hidden"
-	}
+	const persian_stylefont = { fontSize: "15px", visibility: persianshow ? "" : "hidden" }
+	const english_stylefont = { fontSize: "15px", visibility: englishshow ? "" : "hidden" }
 
 
 
@@ -45,9 +39,9 @@ const Word = ({ datawords, costomcolor }) => {
 		speechSynthesis.speak(utterance);
 	}
 
-	const form = <div className='  mx-2  d-flex  w-100 justify-content-between p-0 flex-column'>
+	const form = <div className='  mx-2  d-flex  w-100 justify-content-between p-0 flex-column ' >
 
-		<div className=" d-flex justify-content-start align-items-center p-0 ">
+		<div className=" d-flex justify-content-start align-items-center p-0 " onClick={() => alert("ok")}>
 			<p className="" style={english_stylefont}>{datawords.english}</p>
 			<p>:</p>
 			<p className="" style={persian_stylefont}>{datawords.persian}</p>

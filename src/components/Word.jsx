@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import { HiSpeakerWave } from "react-icons/hi2";
 import Box from '@mui/material/Box';
 const Word = ({ datawords, costomcolor }) => {
-	const { handleupdate, clear_s1, theme } = useContext(AppContext);
+	const { handleupdate, clear_s1, theme, persianshow, englishshow } = useContext(AppContext);
+
+
 	const [disable, setdisbale] = useState(true);
 	const update = () => setdisbale(!disable);
 
@@ -23,8 +25,13 @@ const Word = ({ datawords, costomcolor }) => {
 			)
 	}
 
-	const stylefont = {
+	const persian_stylefont = {
 		fontSize: "15px",
+		visibility: persianshow ? "" : "hidden"
+	}
+	const english_stylefont = {
+		fontSize: "15px",
+		visibility: englishshow ? "" : "hidden"
 	}
 
 
@@ -41,9 +48,9 @@ const Word = ({ datawords, costomcolor }) => {
 	const form = <div className='  mx-2  d-flex  w-100 justify-content-between p-0 flex-column'>
 
 		<div className=" d-flex justify-content-start align-items-center p-0 ">
-			<p className="  " style={stylefont}>{datawords.english}</p>
+			<p className="" style={english_stylefont}>{datawords.english}</p>
 			<p>:</p>
-			<p className="" style={stylefont}>{datawords.persian}</p>
+			<p className="" style={persian_stylefont}>{datawords.persian}</p>
 		</div>
 
 		<div className="d-flex  flex-row justify-content-end ">

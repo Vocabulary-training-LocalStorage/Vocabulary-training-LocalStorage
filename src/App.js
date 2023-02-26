@@ -26,6 +26,13 @@ const App = () => {
   const [invalue, setinvalue] = useState(null); // خالی کننده مقدار ورودی ها
   const navigate = useNavigate();
   const [wordcolor, setwordcolor] = useState(null);
+
+
+  const [persianshow, setpersianshow] = useState(true);//نمایش کلمات فارسی
+  const [englishshow, setenglishshow] = useState(true);// نمایش کلمات انگلیسی
+
+
+
   //  ترجمه کلمه
   useEffect(() => {
     const randomcolor = `rgb( ${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 200)},${Math.floor(Math.random() * 255)},0.45)`;
@@ -226,7 +233,13 @@ const App = () => {
   const costomcolor = JSON.parse(window.localStorage.getItem('word_bgcolor'));
 
   return (
-    <Appcontext.Provider value={{ datawords, clear_s1, checker, invalue, handleupdate, setmode, costomcolor, setwordcolor, theme }}>
+    <Appcontext.Provider value={{
+      datawords, clear_s1, checker,
+      invalue, handleupdate, setmode,
+      costomcolor, setwordcolor, theme,
+      persianshow, englishshow, setpersianshow,
+      setenglishshow
+    }}>
       <CacheProvider value={cachertl}>
         <ThemeProvider theme={theme}>
           <CssBaseline />

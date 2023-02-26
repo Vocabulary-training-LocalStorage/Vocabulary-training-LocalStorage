@@ -41,7 +41,7 @@ const Word = ({ datawords, costomcolor }) => {
 
 	const form = <div className='  mx-2  d-flex  w-100 justify-content-between p-0 flex-column ' >
 
-		<div className=" d-flex justify-content-start align-items-center p-0 " onClick={() => alert("ok")}>
+		<div className=" d-flex justify-content-start align-items-center p-0 " onClick={reader}>
 			<p className="" style={english_stylefont}>{datawords.english}</p>
 			<p>:</p>
 			<p className="" style={persian_stylefont}>{datawords.persian}</p>

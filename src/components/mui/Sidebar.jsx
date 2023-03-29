@@ -102,22 +102,22 @@ export default function PersistentDrawerLeft() {
 						aria-label="open drawer"
 						onClick={handleDrawerOpen}
 						edge="start"
-						sx={{ mr: 2, ...(open && { display: 'none' }) }}
+						sx={{ mr:0,p:0, ...(open && { display: 'none' }) }}
 					>
 						<MenuIcon />
 					</IconButton>
 
 
-					<Typography variant="h6" Wrap component="div" className=' d-flex'>
-						<Typography variant="h6" component="div" className='' noWrap >
-							<RiFileWord2Fill style={{ color: "yellow", fontSize: '50px' }} className='mx-2'></RiFileWord2Fill>
-							تمرین لغت
+					<Typography variant="h6" Wrap component="div" className=' d-flex m-0'>
+						<Typography variant="h6" component="div" className='m-0' noWrap >
+							<RiFileWord2Fill style={{ color: "yellow", fontSize: '50px' }} className='ml-2'></RiFileWord2Fill>
+							Words
 						</Typography>
 					</Typography>
 
 
 					{location.pathname == "/" ?
-						<Box sx={{ margin: "auto", marginRight: "18px" }} className="">
+						<Box sx={{ margin: "auto", marginRight: "18px" }}  className="d-flex justify-content-end">
 							<SearchAppBar></SearchAppBar>
 						</Box>
 						: null}

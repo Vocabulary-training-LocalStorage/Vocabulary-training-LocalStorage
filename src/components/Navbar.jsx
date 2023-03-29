@@ -26,7 +26,7 @@ import { FaArrowCircleUp } from "react-icons/fa";
 import PersistentDrawerRight from './mui/Sidebar';
 import zIndex from '@mui/material/styles/zIndex';
 import { boolean } from 'yup/lib/locale';
-
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 const Navbar = (props) => {
 
@@ -88,11 +88,13 @@ const Navbar = (props) => {
 
 			<PersistentDrawerRight ></PersistentDrawerRight>
 
+			{/* topbutton */}
 			<Box sx={{ my: 7 }} >
 				<Outlet></Outlet>
 				<ScrollTop {...props} >
-					<Fab size="big" aria-label="scroll back to top" className='bg-warning'>
-						<FaArrowCircleUp style={{ fontSize: "50px" }}></FaArrowCircleUp>
+					<Fab size="small" aria-label="scroll back to top" className=''>
+						{/* <FaArrowCircleUp style={{ fontSize: "50px" }}></FaArrowCircleUp> */}
+						<KeyboardArrowUpIcon style={{ fontSize: "35px" }} />
 					</Fab>
 				</ScrollTop>
 

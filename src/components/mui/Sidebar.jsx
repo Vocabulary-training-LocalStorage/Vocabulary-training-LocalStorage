@@ -24,13 +24,11 @@ import AntSwitch from './AntSwitch';
 import AppContext from '../../context/Context';
 import { GiNightSleep } from "react-icons/gi";
 import { BiHide } from "react-icons/bi";
-
+import { link, Outlet, outlet, useLocation } from 'react-router-dom';
 import { GrDocumentTest } from "react-icons/gr";
 import { AiOutlineFileWord } from "react-icons/ai";
 import RadioButtonsGroup from './Radio group';
-
-
-
+import SearchAppBar from './SearchAppBar';
 
 
 const drawerWidth = 240;
@@ -84,7 +82,7 @@ export default function PersistentDrawerLeft() {
 	const { setmode, setpersianshow, setenglishshow } = useContext(AppContext);
 	const theme = useTheme();
 	const [open, setOpen] = React.useState(false);
-
+	const location = useLocation();
 	const handleDrawerOpen = () => {
 		setOpen(true);
 	};
@@ -94,10 +92,11 @@ export default function PersistentDrawerLeft() {
 	};
 
 	return (
-		<Box sx={{ display: 'flex' }}>
+		<Box sx={{ display: 'flex', flexDirection: 'row' }}>
 			<CssBaseline />
-			<AppBar position="fixed" open={open}>
+			<AppBar position="fixed" open={open} sx={{ display: 'flex', flexDirection: 'row' }}>
 				<Toolbar className='w-100' >
+
 					<IconButton
 						color="inherit"
 						aria-label="open drawer"
@@ -114,15 +113,19 @@ export default function PersistentDrawerLeft() {
 							<RiFileWord2Fill style={{ color: "yellow", fontSize: '50px' }} className='mx-2'></RiFileWord2Fill>
 							تمرین لغت
 						</Typography>
-						{/*
-						<Typography component="div" className='mx-5 d-flex align-items-center'>
-							<AntSwitch onClick={() => setmode((prevLoading) => !prevLoading)}></AntSwitch>
-						</Typography> */}
-
 					</Typography>
 
 
+					{location.pathname == "/" ?
+						<Box sx={{ margin: "auto", marginRight: "18px" }} className="">
+							<SearchAppBar></SearchAppBar>
+						</Box>
+						: null}
+
+
+
 				</Toolbar>
+
 			</AppBar>
 			<Drawer
 

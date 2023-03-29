@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import Input from "./components/Input";
 import Words from './components/Words';
 import Navbar from './components/Navbar';
@@ -25,14 +25,12 @@ const App = () => {
   const [datawords, setdatawords] = useState(null); // کلمه های خوانده شده از سرور داخلی
   const [invalue, setinvalue] = useState(null); // خالی کننده مقدار ورودی ها
   const navigate = useNavigate();
-  const [wordcolor, setwordcolor] = useState(null);
-
-
+  const [wordcolor, setwordcolor] = useState(null);//تعین رنگ کلمه
   const [persianshow, setpersianshow] = useState(true);//نمایش کلمات فارسی
   const [englishshow, setenglishshow] = useState(true);// نمایش کلمات انگلیسی
 
-
-
+  let location = useLocation();
+  let [SearchParams, setSearchParams] = useSearchParams();
   //  ترجمه کلمه
   useEffect(() => {
     const randomcolor = `rgb( ${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 200)},${Math.floor(Math.random() * 255)},0.45)`;
@@ -183,6 +181,7 @@ const App = () => {
 
   // مقدار دهی اولیه برنامه
   useEffect(() => {
+    setSearchParams({ });// خالی کننده مقدار سرج در نوبار
     const words = JSON.parse(window.localStorage.getItem('words'));
     const id = JSON.parse(window.localStorage.getItem('id'));
     if (words == null) {
@@ -198,6 +197,7 @@ const App = () => {
       window.localStorage.setItem('word_bgcolor', JSON.stringify("colorly"));
     }
   }, []);
+
 
   // theme
   const [mode, setmode] = useState(true);
@@ -238,7 +238,7 @@ const App = () => {
       invalue, handleupdate, setmode,
       costomcolor, setwordcolor, theme,
       persianshow, englishshow, setpersianshow,
-      setenglishshow
+      setenglishshow, setSearchParams,SearchParams
     }}>
       <CacheProvider value={cachertl}>
         <ThemeProvider theme={theme}>

@@ -9,7 +9,7 @@ const Words = () => {
 
 const handlesearch=(g)=>{
 	if (SearchParams.get("search")) {
-		let filteredword= g.persian.toLowerCase().includes(SearchParams.get("search")) +  g.english.toLowerCase().includes(SearchParams.get("search"))
+		let filteredword= g.persian.toLowerCase().includes(SearchParams.get("search")) +  g.english.toLowerCase().includes(SearchParams.get("search").toLowerCase())
 		return  filteredword;
 	} else {
 		return true;

@@ -24,13 +24,13 @@ import AntSwitch from './AntSwitch';
 import AppContext from '../../context/Context';
 import { GiNightSleep } from "react-icons/gi";
 import { BiHide } from "react-icons/bi";
-import { link, Outlet, outlet, useLocation } from 'react-router-dom';
+import { Link, link, Outlet, outlet, useLocation } from 'react-router-dom';
 import { GrDocumentTest } from "react-icons/gr";
 import { AiOutlineFileWord } from "react-icons/ai";
 import RadioButtonsGroup from './Radio group';
 import SearchAppBar from './SearchAppBar';
 import Appcontext from '../../context/Context';
-
+import { HiTrash, HiOutlinePencil, HiSave } from "react-icons/hi";
 
 const drawerWidth = 240;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -79,7 +79,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function PersistentDrawerLeft() {
-const {open ,setOpen} = useContext(Appcontext);
+	const { open, setOpen } = useContext(Appcontext);
 	const { setmode, setpersianshow, setenglishshow } = useContext(AppContext);
 	const theme = useTheme();
 	// const [open, setOpen] = React.useState(false);
@@ -103,7 +103,7 @@ const {open ,setOpen} = useContext(Appcontext);
 						aria-label="open drawer"
 						onClick={handleDrawerOpen}
 						edge="start"
-						sx={{ mr:0,p:0, ...(open && { display: 'none' }) }}
+						sx={{ mr: 0, p: 0, ...(open && { display: 'none' }) }}
 					>
 						<MenuIcon />
 					</IconButton>
@@ -118,7 +118,7 @@ const {open ,setOpen} = useContext(Appcontext);
 
 
 					{location.pathname == "/" ?
-						<Box sx={{ margin: "auto", marginRight: "18px" }}  className="d-flex justify-content-end">
+						<Box sx={{ margin: "auto", marginRight: "18px" }} className="d-flex justify-content-end">
 							<SearchAppBar></SearchAppBar>
 						</Box>
 						: null}
@@ -198,6 +198,12 @@ const {open ,setOpen} = useContext(Appcontext);
 						<RadioButtonsGroup></RadioButtonsGroup>
 					</ListItem>
 					<Divider className='bg-dark' />
+
+					<ListItem disablePadding>
+						<Link to={`/Exam`} className="btn word-btn-blue p-1  d-flex align-items-center w-100 btn-primary mx-3 my-1" title="بخش آزمون"><HiOutlinePencil></HiOutlinePencil>
+							<ListItemText primary={"آزمون انگلیسی"} />
+						</Link>
+					</ListItem>
 
 				</List>
 

@@ -18,6 +18,7 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { CssBaseline } from '@mui/material';
 import { CacheProvider } from '@emotion/react';
 import { confirmAlert } from 'react-confirm-alert';
+import Exam from './components/Exam';
 
 const App = () => {
   const [word, setWord] = useState(null); //کلمه دریافتی از کاربر
@@ -253,6 +254,7 @@ const App = () => {
               <Route path='/' element={<Input />}></Route>
               <Route path='/' element={<Words />}></Route>
               <Route path='/editor/:wid' element={<Word_editor />} />
+              <Route path='/Exam' element={<Exam />} />
             </Route>
             <Route path="*" element={<Error />} />
           </Routes>

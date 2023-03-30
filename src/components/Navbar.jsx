@@ -30,7 +30,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 const Navbar = (props) => {
 
-	const {setOpen } = useContext(AppContext);
+	const { setOpen, open } = useContext(AppContext);
 
 	function HideOnScroll(props) {
 		const { children } = props;
@@ -90,8 +90,11 @@ const Navbar = (props) => {
 
 			<span id='back-to-top-anchor'></span>
 
-
 			<PersistentDrawerRight ></PersistentDrawerRight>
+
+			{open ? <Box onClick={handleDrawerClose} className="w-100 h-100 bg-dark mt-5" style={{ position: "absolute", opacity: 0.5, z_index: 5000 }}>
+				<p>test</p>
+			</Box> : null}
 
 			{/* topbutton */}
 			<Box sx={{ my: 7 }} onClick={handleDrawerClose}>

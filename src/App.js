@@ -198,6 +198,10 @@ const App = () => {
     }
   }, []);
 
+  const [open, setOpen] = React.useState(false);
+
+
+
 
   // theme
   const [mode, setmode] = useState(true);
@@ -238,7 +242,8 @@ const App = () => {
       invalue, handleupdate, setmode,
       costomcolor, setwordcolor, theme,
       persianshow, englishshow, setpersianshow,
-      setenglishshow, setSearchParams,SearchParams
+      setenglishshow, setSearchParams,SearchParams,
+      setOpen,open,
     }}>
       <CacheProvider value={cachertl}>
         <ThemeProvider theme={theme}>

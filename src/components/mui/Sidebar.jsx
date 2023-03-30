@@ -29,6 +29,7 @@ import { GrDocumentTest } from "react-icons/gr";
 import { AiOutlineFileWord } from "react-icons/ai";
 import RadioButtonsGroup from './Radio group';
 import SearchAppBar from './SearchAppBar';
+import Appcontext from '../../context/Context';
 
 
 const drawerWidth = 240;
@@ -78,10 +79,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function PersistentDrawerLeft() {
-
+const {open ,setOpen} = useContext(Appcontext);
 	const { setmode, setpersianshow, setenglishshow } = useContext(AppContext);
 	const theme = useTheme();
-	const [open, setOpen] = React.useState(false);
+	// const [open, setOpen] = React.useState(false);
 	const location = useLocation();
 	const handleDrawerOpen = () => {
 		setOpen(true);

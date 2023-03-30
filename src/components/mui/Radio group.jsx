@@ -28,7 +28,7 @@ export default function RadioButtonsGroup() {
 				defaultValue="female"
 				name="radio-buttons-group"
 			>
-				<FormControlLabel value="colorly"  control={<Radio className='text-dark' checked/>} label="رنگی" className=' my-2 FormControlLabel colorly text-dark' />
+				<FormControlLabel value="colorly"  control={<Radio className='text-dark' />} label="رنگی" className=' my-2 FormControlLabel colorly text-dark' />
 				<FormControlLabel value="gray" control={<Radio className='text-dark' />} label="خاکستری" className=' FormControlLabel gray text-dark' />
 				<FormControlLabel value="blue" control={<Radio className='text-dark' />} label="آبی" className=' my-2 FormControlLabel blue text-dark' />
 				<FormControlLabel value="purple" control={<Radio className='text-dark' />} label="بنفش" className='  FormControlLabel white text-dark' />

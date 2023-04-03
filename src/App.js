@@ -19,8 +19,10 @@ import { CssBaseline } from '@mui/material';
 import { CacheProvider } from '@emotion/react';
 import { confirmAlert } from 'react-confirm-alert';
 import Exam from './components/Exam';
-
+import Exam_results from './components/Exam_results';
+import Exam_form from './components/Exam_form';
 const App = () => {
+  let location = useLocation();
   const [word, setWord] = useState(null); //کلمه دریافتی از کاربر
   const [meaning, setmeaning] = useState(null); // کلمه معنی شده از گوگل
   const [datawords, setdatawords] = useState(null); // کلمه های خوانده شده از سرور داخلی
@@ -29,9 +31,10 @@ const App = () => {
   const [wordcolor, setwordcolor] = useState(null);//تعین رنگ کلمه
   const [persianshow, setpersianshow] = useState(true);//نمایش کلمات فارسی
   const [englishshow, setenglishshow] = useState(true);// نمایش کلمات انگلیسی
-
-  let location = useLocation();
   let [SearchParams, setSearchParams] = useSearchParams();
+  const [mistake, setmistake] = useState(); // کلمات اشتباه کاربر
+  const [Score, setScore] = useState(); //امنتیاز کاربر
+
   //  ترجمه کلمه
   useEffect(() => {
     const randomcolor = `rgb( ${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 200)},${Math.floor(Math.random() * 255)},0.45)`;
@@ -182,7 +185,7 @@ const App = () => {
 
   // مقدار دهی اولیه برنامه
   useEffect(() => {
-    setSearchParams({ });// خالی کننده مقدار سرج در نوبار
+    setSearchParams({});// خالی کننده مقدار سرج در نوبار
     const words = JSON.parse(window.localStorage.getItem('words'));
     const id = JSON.parse(window.localStorage.getItem('id'));
     if (words == null) {
@@ -243,8 +246,8 @@ const App = () => {
       invalue, handleupdate, setmode,
       costomcolor, setwordcolor, theme,
       persianshow, englishshow, setpersianshow,
-      setenglishshow, setSearchParams,SearchParams,
-      setOpen,open,
+      setenglishshow, setSearchParams, SearchParams,
+      setOpen, open, setmistake, mistake, setScore, Score
     }}>
       <CacheProvider value={cachertl}>
         <ThemeProvider theme={theme}>
@@ -254,7 +257,10 @@ const App = () => {
               <Route path='/' element={<Input />}></Route>
               <Route path='/' element={<Words />}></Route>
               <Route path='/editor/:wid' element={<Word_editor />} />
-              <Route path='/Exam' element={<Exam />} />
+              <Route path='/Exam' element={<Exam />} >
+                <Route path='/Exam' element={<Exam_form />} />
+                <Route path='/Exam/results' element={<Exam_results />} />
+              </Route>
             </Route>
             <Route path="*" element={<Error />} />
           </Routes>

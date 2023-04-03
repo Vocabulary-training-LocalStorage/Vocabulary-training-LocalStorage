@@ -80,7 +80,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function PersistentDrawerLeft() {
 	const { open, setOpen } = useContext(Appcontext);
-	const { setmode, setpersianshow, setenglishshow } = useContext(AppContext);
+	const { setmode, setpersianshow, setenglishshow, setmistake, datawords } = useContext(AppContext);
 	const theme = useTheme();
 	// const [open, setOpen] = React.useState(false);
 	const location = useLocation();
@@ -91,6 +91,8 @@ export default function PersistentDrawerLeft() {
 	const handleDrawerClose = () => {
 		setOpen(false);
 	};
+
+	const goexam = (() => setmistake(null), handleDrawerClose);
 
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'row' }}>
@@ -200,7 +202,9 @@ export default function PersistentDrawerLeft() {
 					<Divider className='bg-dark' />
 
 					<ListItem disablePadding>
-						<Link to={`/Exam`} className="btn word-btn-blue p-1  d-flex align-items-center w-100 btn-primary mx-3 my-1" title="بخش آزمون"><HiOutlinePencil></HiOutlinePencil>
+						<Link to={`/Exam`} className="btn word-btn-blue p-1  d-flex align-items-center w-100 btn-primary mx-3 my-1" title="بخش آزمون"
+							onClick={goexam}>
+							<HiOutlinePencil></HiOutlinePencil>
 							<ListItemText primary={"آزمون انگلیسی"} />
 						</Link>
 					</ListItem>

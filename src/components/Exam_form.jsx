@@ -53,9 +53,10 @@ const Exam = () => {
         }
         return word;
     }
+    const words = JSON.parse(window.localStorage.getItem('words'));
 
     useEffect(() => {
-        const endData = randomer(datawords);
+        const endData = randomer(words);
         setpersian_bank(endData.map(x => x.persian.toLowerCase().trim()));
         setenglish_bank(endData.map(x => x.english.toLowerCase().trim()));
     }, []);
@@ -81,8 +82,6 @@ const Exam = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setuserdata(Object.values(formData).map((value) => (value).trim().toLowerCase()))
-        console.log("ebank:", english_bank)
-
     }
 
 
@@ -91,15 +90,12 @@ const Exam = () => {
         for (let i = 0; i < a.length; i++) {
             if (a[i] !== b[i]) {
                 mistake_words.push(b[i]);
-
             } else {
                 console.log("true")
             }
         }
         setmistake(mistake_words);
     }
-
-
 
 
     if (persian_bank) {

@@ -15,20 +15,10 @@ const Exam = () => {
     const navigate = useNavigate();
     const { datawords, setmistake, setScore, mistake, Score } = useContext(Appcontext);
 
-    let time;
-
-
-    const [persian_bank, setpersian_bank] = useState();
-    const [english_bank, setenglish_bank] = useState();
-
     useEffect(() => {
-        setpersian_bank(datawords.map(x => x.persian.toLowerCase().trim()));
-        setenglish_bank(datawords.map(x => x.english.toLowerCase().trim()));
-    }, []);
+        setmistake(null)
+      }, []);
 
-
-
-    if (persian_bank) {
         return (
 
             <Box className="" sx={{ mt: 8, p: 1 }}>
@@ -40,7 +30,7 @@ const Exam = () => {
                 <Outlet></Outlet>
             </ Box >
         )
-    }
+    
 
 
 };

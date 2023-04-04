@@ -10,10 +10,6 @@ const Exam_results = () => {
     const { mistake, Score, setmistake } = useContext(Appcontext);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log("res", mistake, Score)
-    }, [])
-
     return (
         <>
             <div className="container mt-2">

@@ -18,7 +18,7 @@ const Exam_results = () => {
         <>
             <div className="container mt-2">
 
-                <div class="card">
+                <div class="card d-flex justify-content-center">
                     <h5 class="card-header">نتیجه آزمون</h5>
                     <div class="card-body">
                         <h5 class="card-title">{Score}</h5>

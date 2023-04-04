@@ -7,25 +7,27 @@ const Words = () => {
 
 
 
-const handlesearch=(g)=>{
-	if (SearchParams.get("search")) {
-		let filteredword= g.persian.toLowerCase().includes(SearchParams.get("search")) +  g.english.toLowerCase().includes(SearchParams.get("search").toLowerCase())
-		return  filteredword;
-	} else {
-		return true;
+	const handlesearch = (g) => {
+		if (SearchParams.get("search")) {
+			let filteredword = g.persian.toLowerCase().includes(SearchParams.get("search")) + g.english.toLowerCase().includes(SearchParams.get("search").toLowerCase())
+			return filteredword;
+		} else {
+			return true;
+		}
 	}
-}
 	return (
 		<div className="words">
-			<ol className=" justify-content-evenly d-flex flex-wrap p-0 ">
+			<ol className=" justify-content-start d-flex flex-wrap p-0 ">
 				{datawords ?
 					datawords
 						.filter(handlesearch)
 						.map(datawords => {
 							return (
-								<li className=" xs-12 sm-3 li">
-									<Word datawords={datawords} costomcolor={costomcolor} ></Word>
-								</li>
+								// <div className='border border-danger d-flex justify-content-end'>
+									<li className=" xs-12 sm-3 li">
+										<Word datawords={datawords} costomcolor={costomcolor} ></Word>
+									</li>
+								// </div>
 							)
 						}).reverse() : null}
 			</ol>

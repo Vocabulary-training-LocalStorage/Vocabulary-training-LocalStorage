@@ -240,6 +240,9 @@ const App = () => {
 
   const costomcolor = JSON.parse(window.localStorage.getItem('word_bgcolor'));
 
+
+
+
   return (
     <Appcontext.Provider value={{
       datawords, clear_s1, checker,

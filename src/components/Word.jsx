@@ -39,7 +39,7 @@ const Word = ({ datawords, costomcolor }) => {
 		speechSynthesis.speak(utterance);
 	}
 
-	const form = <div className='  mx-2  d-flex  w-100 justify-content-between p-0 flex-column ' >
+	const form = <div className='  mx-1  d-flex  w-100 justify-content-between p-0  ' >
 
 		<div className=" d-flex justify-content-start align-items-center p-0 " onClick={reader}>
 			<p className="" style={english_stylefont}>{datawords.english}</p>
@@ -59,7 +59,7 @@ const Word = ({ datawords, costomcolor }) => {
 	return (
 		<Box className="  word d-flex  justify-content-between p-1 m-1 "
 			sx={{ bgcolor: style }}>
-			<div className="d-flex  pt-0  w-100  " >
+			<div className="d-flex  pt-0  w-100 " >
 				{form}
 			</div>
 		</Box  >

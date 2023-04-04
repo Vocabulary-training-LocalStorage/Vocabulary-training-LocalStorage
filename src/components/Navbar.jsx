@@ -27,6 +27,7 @@ import PersistentDrawerRight from './mui/Sidebar';
 import zIndex from '@mui/material/styles/zIndex';
 import { boolean } from 'yup/lib/locale';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { Height } from '@mui/icons-material';
 
 const Navbar = (props) => {
 
@@ -92,7 +93,7 @@ const Navbar = (props) => {
 
 			<PersistentDrawerRight ></PersistentDrawerRight>
 
-			{open ? <Box onClick={handleDrawerClose} className="w-100 h-100 bg-dark mt-5" style={{ position: "absolute", opacity: 0.5, z_index: 5000 }}>
+			{open ? <Box onClick={handleDrawerClose} className="w-100 bg-dark mt-5" style={{ position: "absolute", opacity: 0.5, z_index: 5000, height:"100vh",position:"fixed"   }}>
 				<p>test</p>
 			</Box> : null}
 

@@ -279,24 +279,57 @@ export default function PersistentDrawerLeft() {
 
 					</Accordion>
 
-					{/* <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+					<Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')} style={{ backgroundColor: "rgba(202, 198, 220, 0.3)" }}>
 
 						<AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1bh-content" id="panel4bh-header" >
 
 							<Typography sx={{ width: '100%', flexShrink: 0 }}>
-								حالت نمایش کلمه
+								آموزش کلمه
 							</Typography>
 
 						</AccordionSummary>
 
 						<AccordionDetails>
 							<Typography>
-								Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-								Aliquam eget maximus est, id dignissim quam.
+							<ListItem disablePadding>
+									<Button  disabled className="btn text-light word-btn-blue p-1  d-flex align-items-center w-100 btn-primary mx-3 my-1" title="بخش آزمون"
+										onClick={{}}>
+										<FaLock></FaLock>
+										<ListItemText primary={" کلمات A1"} />
+									</Button>
+								</ListItem>
+								<ListItem disablePadding>
+									<Button  disabled className="btn text-light word-btn-blue p-1  d-flex align-items-center w-100 btn-primary mx-3 my-1" title="بخش آزمون"
+										onClick={{}}>
+										<FaLock></FaLock>
+										<ListItemText primary={" کلمات A2"} />
+									</Button>
+								</ListItem>
+								<ListItem disablePadding>
+									<Button  disabled className="btn text-light word-btn-blue p-1  d-flex align-items-center w-100 btn-primary mx-3 my-1" title="بخش آزمون"
+										onClick={{}}>
+										<FaLock></FaLock>
+										<ListItemText primary={"کلمات B1 "} />
+									</Button>
+								</ListItem>
+								<ListItem disablePadding>
+									<Button  disabled className="btn text-light word-btn-blue p-1  d-flex align-items-center w-100 btn-primary mx-3 my-1" title="بخش آزمون"
+										onClick={{}}>
+										<FaLock></FaLock>
+										<ListItemText primary={"کلمات B2 "} />
+									</Button>
+								</ListItem>
+								<ListItem disablePadding>
+									<Button  disabled className="btn text-light word-btn-blue p-1  d-flex align-items-center w-100 btn-primary mx-3 my-1" title="بخش آزمون"
+										onClick={{}}>
+										<FaLock></FaLock>
+										<ListItemText primary={"کلمات C1 "} />
+									</Button>
+								</ListItem>
 							</Typography>
 						</AccordionDetails>
 
-					</Accordion> */}
+					</Accordion>
 
 
 

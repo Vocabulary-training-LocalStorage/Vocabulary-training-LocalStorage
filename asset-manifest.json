@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.b8053e9b.css",
-    "main.js": "/static/js/main.976da77e.js",
+    "main.css": "/static/css/main.6ffecc13.css",
+    "main.js": "/static/js/main.2a2465f8.js",
     "static/media/sidebg.png": "/static/media/sidebg.0f9578a34462a327e158.png",
     "static/media/Spinner.gif": "/static/media/Spinner.5b35cef0ce49e2af8525.gif",
     "static/media/IranNastaliq.ttf": "/static/media/IranNastaliq.32e9d4e99ce672ff198a.ttf",
+    "static/media/man-taking-note.png": "/static/media/man-taking-note.578e1679689f39584d15.png",
     "static/media/Roboto-Regular.eot": "/static/media/Roboto-Regular.67168c66abc3f57c79f4.eot",
     "static/media/Roboto-Regular.ttf": "/static/media/Roboto-Regular.fa7e6e7d259aa22ddca2.ttf",
     "static/media/Roboto-Regular.woff": "/static/media/Roboto-Regular.0944be1093c62cedb919.woff",
@@ -17,11 +18,11 @@
     "static/media/Vazir.woff": "/static/media/Vazir.b8234f5ef6ecbd4b502d.woff",
     "static/media/Vazir.woff2": "/static/media/Vazir.ef4fe90b863efb3ff605.woff2",
     "index.html": "/index.html",
-    "main.b8053e9b.css.map": "/static/css/main.b8053e9b.css.map",
-    "main.976da77e.js.map": "/static/js/main.976da77e.js.map"
+    "main.6ffecc13.css.map": "/static/css/main.6ffecc13.css.map",
+    "main.2a2465f8.js.map": "/static/js/main.2a2465f8.js.map"
   },
   "entrypoints": [
-    "static/css/main.b8053e9b.css",
-    "static/js/main.976da77e.js"
+    "static/css/main.6ffecc13.css",
+    "static/js/main.2a2465f8.js"
   ]
 }

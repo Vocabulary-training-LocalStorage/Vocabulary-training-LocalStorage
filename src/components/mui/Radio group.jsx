@@ -22,7 +22,7 @@ export default function RadioButtonsGroup() {
 	return (
 		<FormControl className='  w-100' onChange={(event) => setbackgroundcolr(event.target.value)}
 		>
-			<FormLabel id="demo-radio-buttons-group-label" className='' >رنگ کلمات</FormLabel>
+			{/* <FormLabel id="demo-radio-buttons-group-label" className='' >رنگ کلمات</FormLabel> */}
 			<RadioGroup
 				aria-labelledby="demo-radio-buttons-group-label"
 				defaultValue="female"

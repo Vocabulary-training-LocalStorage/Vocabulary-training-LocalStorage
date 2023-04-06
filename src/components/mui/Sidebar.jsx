@@ -32,6 +32,13 @@ import SearchAppBar from './SearchAppBar';
 import Appcontext from '../../context/Context';
 import { HiTrash, HiOutlinePencil, HiSave } from "react-icons/hi";
 
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Button from '@mui/material/Button';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { FaLock } from "react-icons/fa";
+
 const drawerWidth = 240;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
 	({ theme, open }) => ({
@@ -79,6 +86,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function PersistentDrawerLeft() {
+	const [expanded, setExpanded] = React.useState(false);
+
 	const { open, setOpen } = useContext(Appcontext);
 	const { setmode, setpersianshow, setenglishshow, setmistake, datawords } = useContext(AppContext);
 	const theme = useTheme();
@@ -91,6 +100,11 @@ export default function PersistentDrawerLeft() {
 	const handleDrawerClose = () => {
 		setOpen(false);
 	};
+
+	const handleChange = (panel) => (event, isExpanded) => {
+		setExpanded(isExpanded ? panel : false);
+	};
+
 
 	const goexam = (() => setmistake(null), handleDrawerClose);
 
@@ -159,66 +173,167 @@ export default function PersistentDrawerLeft() {
 
 				<Divider className='bg-dark' />
 
-				<List >
 
-					{/* حالت شب */}
-					<ListItem className=''>
-						<ListItemIcon>
-							<GiNightSleep className='side-icon' />
-						</ListItemIcon>
-						<ListItemText primary={" حالت شب"} className=" text-dark" />
-						<Typography component="div" className=' d-flex align-items-center'>
-							<AntSwitch onClick={() => setmode((prevLoading) => !prevLoading)}></AntSwitch>
-						</Typography>
-					</ListItem>
+				<div>
+					<Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} className='' style={{ backgroundColor: "rgba(229, 43, 80, 0.3)" }}>
+
+						<AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1bh-content" id="panel1bh-header" >
+
+							<Typography sx={{ width: '100%', flexShrink: 0, }}>
+								حالت نمایش کلمه
+							</Typography>
+
+						</AccordionSummary>
+
+						<AccordionDetails>
+							<Typography>
+								<ListItem className=''>
+									<ListItemIcon>
+										<GiNightSleep className='side-icon' />
+									</ListItemIcon>
+									<ListItemText primary={" حالت شب"} className=" text-dark" />
+									<Typography component="div" className=' d-flex align-items-center'>
+										<AntSwitch onClick={() => setmode((prevLoading) => !prevLoading)}></AntSwitch>
+									</Typography>
+								</ListItem>
+
+								<ListItem className=''>
+									<ListItemIcon>
+										<BiHide className='side-icon' />
+									</ListItemIcon>
+									<ListItemText primary={"  کلمات فارسی"} className=" text-dark" />
+									<Typography component="div" className=' d-flex align-items-center'>
+										<AntSwitch onClick={() => setpersianshow((prevLoading) => !prevLoading)}></AntSwitch>
+									</Typography>
+								</ListItem>
+
+								<ListItem className=''>
+									<ListItemIcon>
+										<BiHide className='side-icon' />
+									</ListItemIcon>
+									<ListItemText primary={" کلمات انگلیسی"} className=" text-dark" />
+									<Typography component="div" className=' d-flex align-items-center'>
+										<AntSwitch onClick={() => setenglishshow((prevLoading) => !prevLoading)}></AntSwitch>
+									</Typography>
+								</ListItem>
+							</Typography>
+						</AccordionDetails>
+
+					</Accordion>
+
+					<Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')} style={{ backgroundColor: "rgba(180, 100, 225, 0.3)" }}>
+
+						<AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1bh-content" id="panel2bh-header" >
+
+							<Typography sx={{ width: '100%', flexShrink: 0 }}>
+								رنگ کلمات
+							</Typography>
+
+						</AccordionSummary>
+
+						<AccordionDetails>
+							<Typography>
+								<ListItem className=''>
+									<RadioButtonsGroup></RadioButtonsGroup>
+								</ListItem>
+							</Typography>
+						</AccordionDetails>
+
+					</Accordion>
+
+					<Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}  style={{ backgroundColor: "rgba(11, 218, 81, 0.3)" }}>
+
+						<AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1bh-content" id="panel3bh-header" >
+
+							<Typography sx={{ width: '100%', flexShrink: 0 }} >
+								بخش آزمون
+							</Typography>
+
+						</AccordionSummary>
+
+						<AccordionDetails>
+							<Typography>
+								<ListItem disablePadding>
+									<Link to={`/Exam`} className="btn word-btn-blue p-1  d-flex align-items-center w-100 btn-primary mx-3 my-1" title="بخش آزمون"
+										onClick={goexam}>
+										<HiOutlinePencil></HiOutlinePencil>
+										<ListItemText primary={"آزمون انگلیسی"} />
+									</Link>
+								</ListItem>
+								<ListItem disablePadding>
+									<Button  disabled className="btn text-light word-btn-blue p-1  d-flex align-items-center w-100 btn-primary mx-3 my-1" title="بخش آزمون"
+										onClick={{}}>
+										<FaLock></FaLock>
+										<ListItemText primary={"آزمون فارسی"} />
+									</Button>
+								</ListItem>
+								<ListItem disablePadding>
+									<Button  disabled className="btn word-btn-blue p-1 text-light  d-flex align-items-center w-100 btn-primary mx-3 my-1" title="بخش آزمون"
+										onClick={{}}>
+										<FaLock></FaLock>
+										<ListItemText primary={"آزمون کلمات انتخابی"} />
+									</Button>
+								</ListItem>
+							</Typography>
+						</AccordionDetails>
+
+					</Accordion>
+
+					{/* <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+
+						<AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1bh-content" id="panel4bh-header" >
+
+							<Typography sx={{ width: '100%', flexShrink: 0 }}>
+								حالت نمایش کلمه
+							</Typography>
+
+						</AccordionSummary>
+
+						<AccordionDetails>
+							<Typography>
+								Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
+								Aliquam eget maximus est, id dignissim quam.
+							</Typography>
+						</AccordionDetails>
+
+					</Accordion> */}
 
 
 
-					<ListItem className=''>
-						<ListItemIcon>
-							<BiHide className='side-icon' />
-						</ListItemIcon>
-						<ListItemText primary={"  کلمات فارسی"} className=" text-dark" />
-						<Typography component="div" className=' d-flex align-items-center'>
-							<AntSwitch onClick={() => setpersianshow((prevLoading) => !prevLoading)}></AntSwitch>
-						</Typography>
-					</ListItem>
 
-					<ListItem className=''>
-						<ListItemIcon>
-							<BiHide className='side-icon' />
-						</ListItemIcon>
-						<ListItemText primary={" کلمات انگلیسی"} className=" text-dark" />
-						<Typography component="div" className=' d-flex align-items-center'>
-							<AntSwitch onClick={() => setenglishshow((prevLoading) => !prevLoading)}></AntSwitch>
-						</Typography>
-					</ListItem>
-
-
-					<Divider className='bg-dark' />
-					<ListItem className=''>
-						<RadioButtonsGroup></RadioButtonsGroup>
-					</ListItem>
-					<Divider className='bg-dark' />
-
-					<ListItem disablePadding>
-						<Link to={`/Exam`} className="btn word-btn-blue p-1  d-flex align-items-center w-100 btn-primary mx-3 my-1" title="بخش آزمون"
-							onClick={goexam}>
-							<HiOutlinePencil></HiOutlinePencil>
-							<ListItemText primary={"آزمون انگلیسی"} />
-						</Link>
-					</ListItem>
-
-				</List>
-
-
-				<List >
+				</div>
 
 
 
-				</List>
+
+
+
+
+
+
 			</Drawer>
 
 		</Box >
 	);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

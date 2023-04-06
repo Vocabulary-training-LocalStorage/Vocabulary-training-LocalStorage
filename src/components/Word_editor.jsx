@@ -32,13 +32,13 @@ const Word_editor = () => {
 
 
 	const formik = <Formik
-
 		initialValues={word}
 		validationSchema={tranclateSchema}
-		onSubmit={(value) => { handleupdate(value.id, value) }}>
+		onSubmit={(value) => { handleupdate(value.id, value) }}
 
-		<Form className=" d-flex  justify-content-center flex-column">
-			<div className='d-flex my-2  border-danger p-3'>
+	>
+		<Form className=" d-flex  justify-content-center flex-column" >
+			<div className='d-flex my-2  border-danger p-3' >
 				<Field name="english" className='form-control ltr m-1  word-input' name="english"></Field>
 				<p>:</p>
 				<Field name="persian" className='form-control m-1  word-input' name="persian"></Field>
@@ -64,11 +64,12 @@ const Word_editor = () => {
 				<Helmet>
 					<title>ویرایش کلمه</title>
 				</Helmet>
-				<div className=" p-2 editor-box  d-flex justify-content-center">
+				<div className=" p-2 editor-page  d-flex justify-content-center " style={{ height: "88vh" }}>
 
-					<div className="container border border-danger m-1 mt-5  bg-light" style={{ borderRadius: "25px" }}>
+					<div className="container border border-danger h-50 m-1 mt-5 " style={{ borderRadius: "25px", backgroundColor: "rgba(210, 210, 210, 0.3)" }}>
 						{formik}
 					</div>
+
 				</div>
 			</HelmetProvider>
 		)

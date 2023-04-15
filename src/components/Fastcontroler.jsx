@@ -25,32 +25,32 @@ const Fastcontroler = () => {
         speechSynthesis.speak(utterance);
     }
 
+    const [timerInterval, setTimerInterval] = useState();
 
-
-    const reader_english = (event) => {
-        console.log(event)
+    const reader_english = () => {
         let counter = 0;
         let english_word = [];
         setread(true);
-        datawords.map(x => english_word.push(x.english));
+        english_word = datawords.map(x => x.english);
 
-        let timer_log = setInterval(() => {
-            if (counter >= datawords.length || event == false) {
-                clearInterval(timer_log);
+        setTimerInterval(setInterval(() => {
+            if (counter >= datawords.length) {
+                clearInterval(timerInterval);
+                setTimerInterval(null);
                 setread(false);
             } else {
                 // reader(english_word[counter]);
                 console.log(english_word[counter], counter);
                 counter++;
             }
-        }, 500);
+        }, 1000));
     }
 
-
-
-
-
-
+    const clear_interval = () => {
+        clearInterval(timerInterval);
+        setTimerInterval(null);
+        setread(false);
+    }
 
 
     return (
@@ -66,10 +66,10 @@ const Fastcontroler = () => {
 
             }}>
                 {read ?
-                    <Button onClick={{}} variant='' className=' p-0' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
+                    <Button onClick={() => clear_interval()} variant='' className=' p-0' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
                         <BsFillStopCircleFill className='h3 m-1'></BsFillStopCircleFill>
                     </Button> :
-                    <Button disabled onClick={() => reader_english()} variant='' className=' p-0' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
+                    <Button  onClick={() => reader_english()} variant='' className=' p-0' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
                         <MdRecordVoiceOver className='h3 m-1'></MdRecordVoiceOver>
                     </Button>}
 

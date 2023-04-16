@@ -37,7 +37,7 @@ const Fastcontroler = () => {
 
 
     const reader_english = () => {
-        var english_word = datawords.map(x => x.english);
+        var english_word = datawords.map(x => x.english).reverse();
         var counter = 0;
         setread(true);
         setprogress_length(english_word.length);
@@ -48,7 +48,7 @@ const Fastcontroler = () => {
                 setprogress_bar(0);
                 setread(false);
             } else {
-                reader(english_word.reverse()[counter]);
+                reader(english_word[counter]);
                 counter++;
                 setprogress_bar(counter);
             }

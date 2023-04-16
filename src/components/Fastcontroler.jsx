@@ -5,16 +5,23 @@ import { AiOutlineClose } from "react-icons/ai";
 import { IoIosAddCircle } from "react-icons/io";
 import { HiSpeakerWave } from "react-icons/hi2";
 import { BsFillStopCircleFill } from "react-icons/bs";
+import { MdOutlineMenuOpen } from "react-icons/md";
+import { RiEnglishInput } from "react-icons/ri";
+import { SiFortran } from "react-icons/si";
 
-import { Box, Button } from "@mui/material";
+
+import { Box, Button, Typography } from "@mui/material";
 import React, { useEffect, useState, useRef, Suspense, useContext } from 'react';
 import Appcontext from "../context/Context";
 
 const Fastcontroler = () => {
 
     const { datawords } = useContext(Appcontext);
-    const [cposition, setcposition] = useState(false);
+    const [cposition, setcposition] = useState(true);
     const [read, setread] = useState(false);
+    const [progress_length, setprogress_length] = useState();
+    const [progress_bar, setprogress_bar] = useState();
+
 
     const reader = (event) => {
         let utterance = new SpeechSynthesisUtterance(event);
@@ -27,28 +34,31 @@ const Fastcontroler = () => {
 
     const [timerInterval, setTimerInterval] = useState();
 
-    const reader_english = () => {
-        let counter = 0;
-        let english_word = [];
-        setread(true);
-        english_word = datawords.map(x => x.english);
 
+
+    const reader_english = () => {
+        var english_word = datawords.map(x => x.english);
+        var counter = 0;
+        setread(true);
+        setprogress_length(english_word.length);
         setTimerInterval(setInterval(() => {
             if (counter >= datawords.length) {
                 clearInterval(timerInterval);
                 setTimerInterval(null);
+                setprogress_bar(0);
                 setread(false);
             } else {
-                // reader(english_word[counter]);
-                console.log(english_word[counter], counter);
+                reader(english_word.reverse()[counter]);
                 counter++;
+                setprogress_bar(counter);
             }
-        }, 1000));
+        }, 2500));
     }
 
     const clear_interval = () => {
         clearInterval(timerInterval);
         setTimerInterval(null);
+        setprogress_bar(0);
         setread(false);
     }
 
@@ -65,11 +75,13 @@ const Fastcontroler = () => {
                 // display:"none"
 
             }}>
+                {read && cposition ? <progress className="progressbar" id="file" value={progress_bar} max={progress_length}> 32% </progress> : null}
+
                 {read ?
                     <Button onClick={() => clear_interval()} variant='' className=' p-0' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
                         <BsFillStopCircleFill className='h3 m-1'></BsFillStopCircleFill>
                     </Button> :
-                    <Button  onClick={() => reader_english()} variant='' className=' p-0' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
+                    <Button onClick={() => reader_english()} variant='' className=' p-0' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
                         <MdRecordVoiceOver className='h3 m-1'></MdRecordVoiceOver>
                     </Button>}
 
@@ -77,15 +89,22 @@ const Fastcontroler = () => {
                     <FiSearch className='h3 m-1'></FiSearch>
                 </Button>
 
-                <Button onClick={() => document.getElementById("e_in").focus()} variant='' className=' p-0 ' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
-                    <IoMdAddCircleOutline className='h3 m-1'></IoMdAddCircleOutline>
+                <Button onClick={() => document.getElementById("e_in").focus()} variant='' className='p-0   align-self-start' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
+                <SiFortran className='h3 m-1'></SiFortran>
                 </Button>
-                <Button onClick={() => document.getElementById("p_in").focus()} variant='' className=' p-0 ' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
-                    <IoIosAddCircle className='h3 m-1'></IoIosAddCircle>
+
+                <Button onClick={() => document.getElementById("p_in").focus()} variant='' className='p-0  align-self-start' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
+                <RiEnglishInput className='h3 m-1'></RiEnglishInput>
                 </Button>
-                <Button onClick={() => setcposition((prevLoading) => !prevLoading)} variant='' className=' p-0 ' >
+
+                {cposition ? <Button onClick={() => setcposition((prevLoading) => !prevLoading)} variant='' className=' p-0 ' >
                     <AiOutlineClose className='h3 m-1'></AiOutlineClose>
-                </Button>
+                </Button> :
+                    <Button onClick={() => setcposition((prevLoading) => !prevLoading)} variant='' className=' p-0 ' >
+                        <MdOutlineMenuOpen className='h3 m-1'></MdOutlineMenuOpen>
+                    </Button>}
+
+
             </Box>
         </div>
     )

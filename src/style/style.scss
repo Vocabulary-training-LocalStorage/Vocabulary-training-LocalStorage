@@ -225,3 +225,17 @@ ol {
 	bottom: 56px !important;
 	left: 33px !important;
 }
+
+
+.progressbar{
+    position: fixed;
+    width: 260px;
+    height: 8px;
+    bottom: 59px;
+    background-color: rgb(5, 250, 5);
+    direction: ltr;
+}
+
+// .progressbar::after{
+// 	background: red;
+// }

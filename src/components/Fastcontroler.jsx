@@ -90,11 +90,12 @@ const Fastcontroler = () => {
                 </Button>
 
                 <Button onClick={() => document.getElementById("e_in").focus()} variant='' className='p-0   align-self-start' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
-                <SiFortran className='h3 m-1'></SiFortran>
+                    <RiEnglishInput className='h3 m-1'></RiEnglishInput>
                 </Button>
 
                 <Button onClick={() => document.getElementById("p_in").focus()} variant='' className='p-0  align-self-start' style={{ display: (cposition ? "inline" : "none"), transition: "all 3s" }}>
-                <RiEnglishInput className='h3 m-1'></RiEnglishInput>
+                    <SiFortran className='h3 m-1'></SiFortran>
+
                 </Button>
 
                 {cposition ? <Button onClick={() => setcposition((prevLoading) => !prevLoading)} variant='' className=' p-0 ' >
